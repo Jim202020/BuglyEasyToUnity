@@ -126,3 +126,9 @@ public class Main : MonoBehaviour
 
 ### IOS测试结果： ###
 ![](png/testIos.png)
+
+## 结束语 ##
+个人从接入到完成真机测试，代码优化花费了2个工作日。接入过程中安卓下遇到了Android 9.0要给Bugly添加networkSecurityConfig，Xcode编译过程中如果只是使用XUPorter添加依赖库，会报链接错误，找不到Bugly库，必须要指定FRAMEWORK_SEARCH_PATHS。Bugly Unity Plugin 最新更新时间停留在了2017-06-22 1.5.3版本，官方是放弃维护更新Unity插件，只更新原生库版本。这意味着只要是跟Bugly打交道的开发者必然会重复查找修复这些已知的bug，必然会手动去更新最新的原生库，必然会浪费n个2个工作日。或许开源一个稳定可用的工具库可以解决这类重复低效无意义的事情，如果这个工具库可以帮助你节约时间快速接入，可以请我喝杯咖啡提下神去做更多这类有意义的事情。欢迎反馈bug，一起让这个工具库变得更稳定实用。
+
+# Donate #
+![](png/pay.png)
