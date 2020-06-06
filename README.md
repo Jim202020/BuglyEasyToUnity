@@ -1,6 +1,11 @@
 # BuglyEasyToUnity
 基于腾讯Bugly Unity Plugin基础上进行了更新优化，方便Unity开发者快速接入更新更稳定的Bugly版本。
 
+最新版本：
+* Android NDK: 3.7.1
+* Android SDK: 3.2.2
+* iOS SDK: 2.5.5
+
 平台:
 * Android 测试通过
 * iOS 测试通过
@@ -85,3 +90,39 @@ BuglyAgent.EnableExceptionHandler();
 ### 更新 iOS SDK ###
 
 到官网下载 `iOS SDK` 包并解压，将 `Bugly.framework` 文件夹覆盖到 `Assets\Bugly\Plugins\BuglyPlugins\iOS` 中
+
+## 真机测试 ##
+Scenes/SampleScene是测试场景，测试脚本Scenes/Main.cs
+```
+using UnityEngine;
+public class Main : MonoBehaviour
+{
+    void Start()
+    {
+
+#if   UNITY_IOS
+        BuglyAgent.InitWithAppId ("your ios app id");
+#elif UNITY_ANDROID
+		//GamePlayerActivity已初始化，此处不需要再调用。
+#endif
+
+        BuglyAgent.ConfigDebugMode(false);
+        BuglyAgent.EnableExceptionHandler();
+
+        Test();
+    }
+
+    void Test()
+    {
+        print("Test Bugly NullReferenceException");
+        GameObject go = null;
+        go.name = "";
+    }
+}
+
+```
+### 安卓测试结果： ###
+![](png/testAndroid.png)
+
+### IOS测试结果： ###
+![](png/testIos.png)
