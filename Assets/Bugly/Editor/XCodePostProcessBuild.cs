@@ -22,9 +22,14 @@ public static class XCodePostProcessBuild
         string projectPath = PBXProject.GetPBXProjectPath(pathToBuiltProject);
         var pbxProject = new PBXProject();
         pbxProject.ReadFromString(File.ReadAllText(projectPath));
-
+        
+#if UNITY_2019_3_OR_NEWER
         string mainTarget = pbxProject.GetUnityMainTargetGuid();  
-        string frameworkTarget = pbxProject.GetUnityFrameworkTargetGuid();      
+        string frameworkTarget = pbxProject.GetUnityFrameworkTargetGuid();   
+#else
+        string mainTarget = pbxProject.TargetGuidByName(PBXProject.GetUnityTargetName());
+        string frameworkTarget = mainTarget;
+#endif
 
         DisableBitcode(pbxProject,mainTarget,frameworkTarget);
 
