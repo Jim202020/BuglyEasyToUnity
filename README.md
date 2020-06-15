@@ -2,8 +2,8 @@
 基于腾讯Bugly Unity Plugin基础上进行了更新优化，方便Unity开发者快速接入更新更稳定的Bugly版本。
 
 最新版本：
-* Android NDK: 3.7.1
-* Android SDK: 3.2.2
+* Android NDK: 3.7.3
+* Android SDK: 3.2.3
 * iOS SDK: 2.5.5
 
 平台:
@@ -73,8 +73,8 @@ BuglyAgent.EnableExceptionHandler();
 
 ### 目前使用的版本 ###
 
-* Android NDK: 3.7.1
-* Android SDK: 3.2.2
+* Android NDK: 3.7.3
+* Android SDK: 3.2.3
 * iOS SDK: 2.5.5
 
 ### 更新 Android SDK ###
